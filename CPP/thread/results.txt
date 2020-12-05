@@ -1,0 +1,121 @@
+для 1500003 интов, 4 потока: +сортировка...
+
+без потоков:
+Admin@Erd_n ~/cpp/thread
+$ normal.bat
+size = 1500003
+
+creating thread, 0
+
+start find = 0 end find = 375000
+addres object is 0x46179c, object = 1234567
+
+creating thread, 1
+
+start find = 375000 end find = 750000
+object not found
+
+creating thread, 2
+
+start find = 750000 end find = 1125000
+addres object is 0x7ea9f4, object = 1234567
+
+creating thread, 3
+
+start find = 1125000 end find = 1500003
+addres object is 0x941e34, object = 1234567
+
+real    3m13.125s
+user    0m0.015s
+sys     0m0.093s
+
+повтор:
+
+Admin@Erd_n ~/cpp/thread
+$ time a
+size = 1500003
+
+creating thread, 0
+
+start find = 0 end find = 375000
+addres object is 0x46179c, object = 1234567
+
+creating thread, 1
+
+start find = 375000 end find = 750000
+object not found
+
+creating thread, 2
+
+start find = 750000 end find = 1125000
+addres object is 0x7ea9f4, object = 1234567
+
+creating thread, 3
+
+start find = 1125000 end find = 1500003
+addres object is 0x941e34, object = 1234567
+
+real    3m7.922s
+user    0m0.015s
+sys     0m0.141s
+
+потоки:
+
+Admin@Erd_n ~/cpp/thread
+$ thread.bat
+size = 1500003
+
+creating thread,
+creating thread,
+creating thread,
+creating thread, 0
+1
+2
+3
+
+start find =
+start find =
+start find = 0375000
+start find = 750000 end find =  end find = 1125000 end find = 375000
+750000
+ end find = 1125000
+1500003
+addres object is addres object is 0x981e34, object = 1234567
+addres object is 0x82a9f4, object = 0x12d687
+0x82a9f4object not found,
+ object = 1234567
+
+real    1m49.547s
+user    0m0.015s
+sys     0m0.078s
+
+повтор:
+
+Admin@Erd_n ~/cpp/thread
+$ time thread
+size = 1500003
+
+creating thread,
+creating thread,
+creating thread,
+creating thread, 0
+1
+3
+2
+
+start find =
+start find = 1125000
+start find =
+start find = 0 end find = 375000750000 end find = 1500003
+ end find =  end find = 375000
+750000
+1125000a
+ddres object is addres object is 0x82a9f40x82a9f4, object = 1234567
+object not found
+, object = 1234567
+addres object is 0x981e34, object = 1234567
+
+real    1m45.110s
+user    0m0.046s
+sys     0m0.124s
+

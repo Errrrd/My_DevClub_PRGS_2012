@@ -1,0 +1,15 @@
+#include<windows.h>
+#include<iostream>
+ 
+int main(){
+    WIN32_FIND_DATA FindFileData;
+    HANDLE hf;
+    hf=FindFirstFile("c:\\*", &FindFileData);
+    if (hf!=INVALID_HANDLE_VALUE){
+        do{
+            std::cout << FindFileData.cFileName << "\n";
+        }
+        while (FindNextFile(hf,&FindFileData)!=0);
+        FindClose(hf);
+    }
+}
